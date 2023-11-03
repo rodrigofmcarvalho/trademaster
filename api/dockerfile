@@ -1,0 +1,17 @@
+FROM python:3.10
+
+WORKDIR /code
+
+COPY ./api/src/requirements.txt /code/requirements.txt
+
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./api/src /code/src
+
+ENV PYTHONPATH "${PYTHONPATH}:/code/src"
+
+# Ensure the script is executable
+RUN chmod +x /code/src/start.sh
+
+# Start using the new script
+CMD ["/code/src/start.sh"]

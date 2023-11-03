@@ -1,0 +1,23 @@
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: validated-event
+  namespace: kafka
+  labels:
+    strimzi.io/cluster: trademaster
+spec:
+  partitions: 3
+  replicas: 3
+
+---
+
+apiVersion: kafka.strimzi.io/v1beta2
+kind: KafkaTopic
+metadata:
+  name: dead-letter-queue
+  namespace: kafka
+  labels:
+    strimzi.io/cluster: trademaster
+spec:
+  partitions: 3
+  replicas: 3

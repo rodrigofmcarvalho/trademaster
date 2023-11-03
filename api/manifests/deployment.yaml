@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api
+  labels:
+    app: api
+  namespace: api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      labels:
+        app: api
+    spec:
+      containers:
+      - name: api
+        image: api:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
+        env:
+          - name: APP_ENV
+            value: 'Dev'
+          - name: KAFKA_BROKER
+            value: '10.107.61.218:9094'
+          - name: SUCCESS_KAFKA_TOPIC
+            value: 'validated-event'
+          - name: FAILURE_KAFKA_TOPIC
+            value: 'dead-letter-events'
+          - name: MINIO_ENDPOINT
+            value: 'http://10.97.46.233:9000'
+          - name: MINIO_ACCESS_KEY
+            value: 'FhWohW1jICYw0PzNB6Ah'
+          - name: MINIO_SECRET_KEY
+            value: 'sTLD5bI9CxZeGkBuWUv7qaXCCscVL9GU5ilXU30X'
+          - name: MINIO_BUCKET 
+            value: 'datasink'
