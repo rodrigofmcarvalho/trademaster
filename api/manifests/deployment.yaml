@@ -25,16 +25,18 @@ spec:
           - name: APP_ENV
             value: 'Dev'
           - name: KAFKA_BROKER
-            value: '10.107.61.218:9094'
+            value: '10.105.165.100:9094'
           - name: SUCCESS_KAFKA_TOPIC
             value: 'validated-event'
           - name: FAILURE_KAFKA_TOPIC
-            value: 'dead-letter-events'
+            value: 'dead-letter-queue'
           - name: MINIO_ENDPOINT
-            value: 'http://10.97.46.233:9000'
+            value: 'http://10.109.34.202:9000'
           - name: MINIO_ACCESS_KEY
-            value: 'FhWohW1jICYw0PzNB6Ah'
+            value: 'AgvPf0IgtGyJ3IkpNc0A'
           - name: MINIO_SECRET_KEY
-            value: 'sTLD5bI9CxZeGkBuWUv7qaXCCscVL9GU5ilXU30X'
+            value: 'jObXuqVj7BnjmuOqJUGk8yocVLHR5CdbYe2NUFWQ'
           - name: MINIO_BUCKET 
             value: 'datasink'
+          - name: PYTHON_PATH
+            value: 'home/rodrigo/Documents/Projects/trademaster'
