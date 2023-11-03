@@ -162,7 +162,7 @@ de dados.
 - Tópico Kafka de Sucesso:
 ![Tópico Kafka de Sucesso](images/validated-event.png)
 
-- Tópico do Kafka de Erro:
+- Tópico do Kafka de Erro (Salvando quais Informações foram Recusadas e o Motivo):
 ![Tópico do Kafka de Erro](images/dead-letter-queue.png)
 
 ### Tarefa 5:
