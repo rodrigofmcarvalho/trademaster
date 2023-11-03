@@ -4,7 +4,7 @@ O projeto TradeMaster é uma solução de engenharia de dados concebida para oti
 
 # Arquitetura da Solução
 
-![Arquitetura da Solução](images/architecture.jpg)
+![Arquitetura da Solução](images/architecture.png)
 
 - Os seguintes componentes foram implementados:
   -	API Gateway: Interface para receber transações e interagir com sistemas externos.
@@ -94,7 +94,7 @@ O projeto TradeMaster é uma solução de engenharia de dados concebida para oti
    - Pode ser utilizada a biblioteca `Faker` para gerar dados fictícios.
    = Pode ser utilizado o `Kafka-UI` para visualização dos eventos nos tópicos.
 
-## Respondendo as tarefas:
+# Respondendo as tarefas:
 
 ### Tarefa 1:
 Mapear a estrutura de dados da loja, respeitando todas as necessidades listadas:
@@ -107,6 +107,12 @@ estrutura é para uma loja real;
 produtos entender a modelagem e detalhada o suficiente para um engenheiro de
 software entender como a implementar).
 
+### Evidências:
+- Modelagem RDMS PostgreSQL - ERD:
+![Modelagem RDMS PostgreSQL - ERD](images/ERD.png)
+
+- Query de Criação de Tabelas:
+![Query de Criação de Tabelas](images/sql.png)
 
 ### Tarefa 2:
 Definição do evento:
@@ -115,6 +121,10 @@ da venda/aluguel e seus dados relevantes para uma análise futura, seja do
 negócio quanto dos clientes e seu time de funcionários. Sendo assim:
 - Mapeie os dados a serem enviados no evento e o documente de forma simples,
 para entendimento do time de produtos e técnico.
+
+### Evidência:
+- Definição do Evento:
+![Definição do Evento](images/definicao-evento.png)
 
 ### Tarefa 3:
 Publicação:
@@ -127,6 +137,10 @@ mesmo para testes no Docker
 - O publisher deve ser implementado utilizando Python; Deseja-se uma API
 exposta para call do publisher, também implementada utilizando Python
 
+### Evidência:
+- Utilização do Kafka (Pods do Cluster Kafka no Kubernetes):
+![Pods do Cluster Kafka no Kubernetes](images/kafka-pods.png)
+
 ### Tarefa 4:
 Desejamos garantir que iremos popular apenas dados válidos em nosso Data
 Sink, sendo assim:
@@ -137,6 +151,19 @@ devidas validações de dados e estrutura
 controle de quais informações foram recusadas e o motivo
 - Pontos extras: Implementar testes unitários para as validações e transformações
 de dados.
+
+### Evidências:
+- Validação do Evento Realizada com Successo:
+![Validação do Evento Realizada com Successo](images/event-emmitted-successfully.png)
+
+- Validação do Evento Realizada com Erro:
+![Validação do Evento Realizada com Erro](images/event-failed.png)
+
+- Tópico Kafka de Sucesso:
+![Tópico Kafka de Sucesso](images/validated-event.png)
+
+- Tópico do Kafka de Erro:
+![Tópico do Kafka de Erro](images/dead-letter-queue.png)
 
 ### Tarefa 5:
 Consumers/Subscribers
@@ -150,3 +177,12 @@ código que implementa a sdk pronto para revisão
 - Implemente o transform dos dados de acordo com a opção escolhida e justifique
 a escolha com base no contexto da solução.
 
+### Evidências:
+
+- Estrutua de pasta do MinIO:
+![Estrutua de pasta do MinIO](images/minio.png)
+
+- Arquivos salvos em Parquet:
+![Arquivos salvos em Parquet](images/minio-parquet.png)
+
+# AS ATIVIDADES DE TRANSFORMAÇÃO DOS DADOS NÃO FORAM REALIZADAS POR MOTIVO DE TEMPO.
